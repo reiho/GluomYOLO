@@ -18,7 +18,7 @@ def predict(filename):
     nutr = pd.read_excel('products.xlsx', header=0).set_index('Unnamed: 0')
     nutr.columns = ['name', 'kcal', 'protein', 'fat', 'carbohydrate', 'label']
     labels = pd.read_excel('products.xlsx', header=None, sheet_name='Лист1').to_dict()[0]
-    os.system("python yolov5/detect.py --weights best.pt --conf 0.01 --source ./photos --save-txt --save-conf --name food")
+    os.system("python yolov5/detect.py --weights best.pt --conf 0.05 --source ./photos --save-txt --save-conf --name food")
     shutil.move('./yolov5/runs/detect/food/photo.'+filename.rsplit('.', 1)[1], 'static/photo.jpg')
     output = pd.read_csv('./yolov5/runs/detect/food/labels/photo.txt', sep=' ', header=None)
     output.columns = ['label', 'coord1', 'coord2', 'coord3', 'coord4', 'conf']
