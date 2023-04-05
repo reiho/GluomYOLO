@@ -25,7 +25,7 @@ def predict(filename):
     output.label = output.label.replace(labels)
     df=nutr[nutr.label.isin(output.label)]
     df.to_html('static/table.html')
-    shutil.rmtree("/home/senre/Documents/GluomYOLO/yolov5/runs/detect/food")
+    shutil.rmtree("./yolov5/runs/detect/food")
 
 @app.route('/results',methods = ['GET','POST'])
 def show_results():
