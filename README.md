@@ -11,3 +11,8 @@ pip install -qr requirements.txt
 mkdir photos
 python app.py
 ```
+Будет выдано 2 адресса, второй доступен всем устройствам в той же сети:
+```
+ * Running on http://127.0.0.1:5000
+ * Running on http://*.*.*.*:5000
+```
