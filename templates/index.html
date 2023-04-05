@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gluom</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <style>
+        .button-container-div {
+            width: 200px;
+            height: 100px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+   <h1>Распознование еды по фото</h1>
+
+    <form method="post" enctype="multipart/form-data">
+      <div class="button-container-div">
+        <label for="file">Загрузить фото еды</label>
+        <input type="file" id="file" name="file" multiple />
+      </div>
+      <div class="button-container-div">
+        <button>Отправить</button>
+      </div>
+</form>
+
+
+
+</body>
+</html>
