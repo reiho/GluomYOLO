@@ -18,14 +18,17 @@ def predict(filename):
     nutr = pd.read_excel('products.xlsx', header=0).set_index('Unnamed: 0')
     nutr.columns = ['name', 'kcal', 'protein', 'fat', 'carbohydrate', 'label']
     labels = pd.read_excel('products.xlsx', header=None, sheet_name='Лист1').to_dict()[0]
-    os.system("python yolov5/detect.py --weights best.pt --conf 0.01 --source ./photos --save-txt --save-conf --name food")
-    shutil.move('./yolov5/runs/detect/food/photo.'+filename.rsplit('.', 1)[1], 'static/photo.jpg')
-    output = pd.read_csv('./yolov5/runs/detect/food/labels/photo.txt', sep=' ', header=None)
+    os.system("python yolov5/detect.py --weights epoch62.pt --conf 0.05 --source ./photos/photo.jpg --save-txt --save-conf --name food")
+    shutil.move('./yolov5/runs/detect/food/photo.jpg', 'static/photo.jpg')
+    try:
+        output = pd.read_csv('./yolov5/runs/detect/food/labels/photo.txt', sep=' ', header=None)
+    except:
+        return render_template('index.html')
     output.columns = ['label', 'coord1', 'coord2', 'coord3', 'coord4', 'conf']
     output.label = output.label.replace(labels)
     df=nutr[nutr.label.isin(output.label)]
     df.to_html('static/table.html')
-    shutil.rmtree("/home/senre/Documents/GluomYOLO/yolov5/runs/detect/food")
+    shutil.rmtree("./yolov5/runs/detect/food")
 
 @app.route('/results',methods = ['GET','POST'])
 def show_results():
@@ -46,7 +49,7 @@ def getphoto():
             return redirect(request.url)
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'photo.'+filename.rsplit('.', 1)[1]))
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'photo.jpg'))
             predict(filename)
             return redirect('/results')
             #redirect(url_for('download_file', name=filename))
