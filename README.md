@@ -1,5 +1,5 @@
 # GluomYOLO
-Для установки:
+Для установки (желательно в виртуальную среду):
 ```
 git clone https://github.com/reiho/GluomYOLO.git
 cd GluomYOLO
