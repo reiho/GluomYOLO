@@ -6,7 +6,6 @@ cd GluomYOLO
 git clone https://github.com/ultralytics/yolov5
 pip install -qr YOLOrequirements.txt
 pip install -qr requirements.txt
-mkdir photos
 python app.py
 ```
 Будет выдано 2 адреса, второй доступен всем устройствам в той же сети:
