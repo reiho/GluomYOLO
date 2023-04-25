@@ -51,6 +51,10 @@ def getphoto():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'photo.jpg'))
             return redirect(url_for('predict', filename=filename))
+        
+@app.route('/')
+def start():
+    return 'App is active'
 
 
 if __name__ == '__main__':
