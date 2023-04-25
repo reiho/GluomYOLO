@@ -6,6 +6,7 @@ cd GluomYOLO
 git clone https://github.com/ultralytics/yolov5
 pip install -qr YOLOrequirements.txt
 pip install -qr requirements.txt
+gdown --id 1-dS8PluXl441RiHuzuQyOza4vJ4ccbmW
 python app.py
 ```
 Будет выдано 2 адреса, второй доступен всем устройствам в той же сети:
@@ -13,6 +14,7 @@ python app.py
  * Running on http://127.0.0.1:5000
  * Running on http://*.*.*.*:5000
 ```
+
 ## Пример использования (Python)
 ```ruby
 import requests
