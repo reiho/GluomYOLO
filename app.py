@@ -17,6 +17,7 @@ def allowed_file(filename):
 
 @app.route('/predict/<filename>')
 def predict(filename):
+    shutil.rmtree("./yolov5/runs/detect/")
     nutr = pd.read_excel('products.xlsx', header=0).set_index('Unnamed: 0')
     nutr.columns = ['name', 'kcal', 'protein', 'fat', 'carbohydrate', 'label']
     labels = pd.read_excel('products.xlsx', header=None, sheet_name='Лист1').to_dict()[0]
@@ -25,13 +26,12 @@ def predict(filename):
     try:
         output = pd.read_csv('./yolov5/runs/detect/food/labels/photo.txt', sep=' ', header=None)
     except:
-        return None
+        return 'Error'
     output.columns = ['label', 'coord1', 'coord2', 'coord3', 'coord4', 'conf']
     output.sort_values('conf', ascending=False)
     output.label = output.label.replace(labels)
     df=nutr[nutr.label.isin(output.label)].set_index('name')#.drop('Unnamed: 0', axis=1)
     results=df.T.to_json(force_ascii=False)#.encode('utf-8')
-    shutil.rmtree("./yolov5/runs/detect/food")
     return results
 
 
