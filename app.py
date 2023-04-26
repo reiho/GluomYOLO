@@ -1,8 +1,10 @@
 import os
-from flask import Flask, request, redirect, url_for, jsonify
+from flask import Flask, request, redirect, url_for
 from werkzeug.utils import secure_filename
 import pandas as pd
 import shutil
+import uuid
+
 
 app = Flask(__name__)
 #app._static_folder = './templates/'
@@ -21,10 +23,10 @@ def predict(filename):
     nutr = pd.read_excel('products.xlsx', header=0).set_index('Unnamed: 0')
     nutr.columns = ['name', 'kcal', 'protein', 'fat', 'carbohydrate', 'label']
     labels = pd.read_excel('products.xlsx', header=None, sheet_name='Лист1').to_dict()[0]
-    os.system("python yolov5/detect.py --weights epoch62.pt --conf 0.05 --source ./photos/photo.jpg --save-txt --save-conf --name food")
+    os.system("python yolov5/detect.py --weights epoch62.pt --conf 0.05 --source ./photos/{0}.jpg --save-txt --save-conf --name food".format(filename))
     #shutil.move('./yolov5/runs/detect/food/photo.jpg', 'static/photo.jpg')
     try:
-        output = pd.read_csv('./yolov5/runs/detect/food/labels/photo.txt', sep=' ', header=None)
+        output = pd.read_csv('./yolov5/runs/detect/food/labels/{0}.txt'.format(filename), sep=' ', header=None)
     except:
         return 'Error'
     output.columns = ['label', 'coord1', 'coord2', 'coord3', 'coord4', 'conf']
@@ -48,13 +50,9 @@ def getphoto():
         if file.filename == '':
             return('No selected file')
         if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'photo.jpg'))
+            filename=str(uuid.uuid4())
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename+'.jpg'))
             return redirect(url_for('predict', filename=filename))
-        
-@app.route('/')
-def start():
-    return 'App is active'
 
 
 if __name__ == '__main__':
