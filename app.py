@@ -28,7 +28,7 @@ def predict(filename):
         for line in f:
             if start:
                 num, name = line.strip().split(': ')
-                labels[int(num)]=name
+                labels[int(num)-1]=name
             if 'names:' in line:
                 start = True
     os.system("python yolov5/detect.py --weights best.pt --conf 0.05 --source ./photos/{0}.jpg --save-txt --save-conf --name food".format(filename))
@@ -38,9 +38,12 @@ def predict(filename):
     except:
         return 'Error'
     output.columns = ['label', 'coord1', 'coord2', 'coord3', 'coord4', 'conf']
-    output.sort_values('conf', ascending=True)
+
+    output=output.sort_values('conf', ascending=False)
+    custom_dict=output.label.to_dict()
+
     output.label = output.label.replace(labels)
-    #print(output)
+
     df=nutr[nutr.label.isin(output.label)].set_index('name')#.drop('Unnamed: 0', axis=1)
     results=df.T.to_json(force_ascii=False)#.encode('utf-8')
     return results
