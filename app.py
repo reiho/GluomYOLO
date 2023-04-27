@@ -22,16 +22,25 @@ def predict(filename):
     shutil.rmtree("./yolov5/runs/detect/")
     nutr = pd.read_excel('products.xlsx', header=0).set_index('Unnamed: 0')
     nutr.columns = ['name', 'kcal', 'protein', 'fat', 'carbohydrate', 'label']
-    labels = pd.read_excel('products.xlsx', header=None, sheet_name='Лист1').to_dict()[0]
-    os.system("python yolov5/detect.py --weights epoch62.pt --conf 0.05 --source ./photos/{0}.jpg --save-txt --save-conf --name food".format(filename))
+    labels = {}
+    with open('food.yaml', 'r') as f:
+        start = False
+        for line in f:
+            if start:
+                num, name = line.strip().split(': ')
+                labels[int(num)]=name
+            if 'names:' in line:
+                start = True
+    os.system("python yolov5/detect.py --weights best.pt --conf 0.05 --source ./photos/{0}.jpg --save-txt --save-conf --name food".format(filename))
     #shutil.move('./yolov5/runs/detect/food/photo.jpg', 'static/photo.jpg')
     try:
         output = pd.read_csv('./yolov5/runs/detect/food/labels/{0}.txt'.format(filename), sep=' ', header=None)
     except:
         return 'Error'
     output.columns = ['label', 'coord1', 'coord2', 'coord3', 'coord4', 'conf']
-    output.sort_values('conf', ascending=False)
+    output.sort_values('conf', ascending=True)
     output.label = output.label.replace(labels)
+    #print(output)
     df=nutr[nutr.label.isin(output.label)].set_index('name')#.drop('Unnamed: 0', axis=1)
     results=df.T.to_json(force_ascii=False)#.encode('utf-8')
     return results
