@@ -19,7 +19,7 @@ def allowed_file(filename):
 
 @app.route('/predict/<filename>')
 def predict(filename):
-    shutil.rmtree("./yolov5/runs/detect/")
+    if os.path.exists('./yolov5/runs/detect/'):shutil.rmtree("./yolov5/runs/detect/")
     nutr = pd.read_excel('products.xlsx', header=0).set_index('Unnamed: 0')
     nutr.columns = ['name', 'kcal', 'protein', 'fat', 'carbohydrate', 'label']
     labels = {}
@@ -28,7 +28,10 @@ def predict(filename):
         for line in f:
             if start:
                 num, name = line.strip().split(': ')
-                labels[int(num)-1]=name
+                if int(num)<256:
+                    labels[int(num)-1]=name
+                else:
+                    labels[int(num)] = name
             if 'names:' in line:
                 start = True
     os.system("python yolov5/detect.py --weights best.pt --conf 0.05 --source ./photos/{0}.jpg --save-txt --save-conf --name food".format(filename))
@@ -66,6 +69,9 @@ def getphoto():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename+'.jpg'))
             return redirect(url_for('predict', filename=filename))
 
+@app.route('/')
+def start():
+    return 'App is ready'
 
 if __name__ == '__main__':
     app.debug = True
