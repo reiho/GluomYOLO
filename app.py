@@ -20,7 +20,7 @@ def allowed_file(filename):
 def predict(filename):
     if os.path.exists('./yolov5/runs/detect/'):shutil.rmtree("./yolov5/runs/detect/")
     nutr = pd.read_excel('products.xlsx', header=0).set_index('Unnamed: 0')
-    nutr.columns = ['name', 'kcal', 'protein', 'fat', 'carbohydrate', 'label']
+    nutr.columns = ['name', 'protein', 'fat', 'carbohydrate', 'kcal', 'label']
     labels = {}
     with open('food.yaml', 'r') as f:
         start = False
