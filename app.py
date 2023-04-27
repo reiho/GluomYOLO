@@ -1,6 +1,5 @@
 import os
 from flask import Flask, request, redirect, url_for
-from werkzeug.utils import secure_filename
 import pandas as pd
 import shutil
 import uuid
@@ -39,15 +38,18 @@ def predict(filename):
     try:
         output = pd.read_csv('./yolov5/runs/detect/food/labels/{0}.txt'.format(filename), sep=' ', header=None)
     except:
-        return 'Error'
+        return {}
     output.columns = ['label', 'coord1', 'coord2', 'coord3', 'coord4', 'conf']
 
-    output=output.sort_values('conf', ascending=False)
-    custom_dict=output.label.to_dict()
+    output=output.sort_values('conf', ascending=False).reset_index(drop=True)
 
     output.label = output.label.replace(labels)
-
-    df=nutr[nutr.label.isin(output.label)].set_index('name')#.drop('Unnamed: 0', axis=1)
+    print(output)
+    sort = output.label.to_dict()
+    inv_sort = {v: k for k, v in sort.items()}
+    print(inv_sort)
+    df=nutr[nutr.label.isin(output.label)].sort_values(by='label', key=lambda x: x.replace(inv_sort))
+    df =df.set_index('name')#.drop('Unnamed: 0', axis=1)
     results=df.T.to_json(force_ascii=False)#.encode('utf-8')
     return results
 
