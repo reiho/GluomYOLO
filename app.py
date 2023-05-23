@@ -13,8 +13,7 @@ app.config['UPLOAD_FOLDER'] = DOWNLOAD_DIRECTORY
 app.secret_key = "ksljgkldgjlk"
 
 def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route('/predict/<filename>')
 def predict(filename):
@@ -27,14 +26,11 @@ def predict(filename):
         for line in f:
             if start:
                 num, name = line.strip().split(': ')
-                if int(num)<256:
-                    labels[int(num)-1]=name
-                else:
-                    labels[int(num)] = name
+                labels[int(num)] = name
             if 'names:' in line:
                 start = True
     os.system("python yolov5/detect.py --weights best.pt --conf 0.05 --source ./photos/{0}.jpg --save-txt --save-conf --name food".format(filename))
-    #shutil.move('./yolov5/runs/detect/food/photo.jpg', 'static/photo.jpg')
+    os.remove("./photos/{0}.jpg".format(filename))
     try:
         output = pd.read_csv('./yolov5/runs/detect/food/labels/{0}.txt'.format(filename), sep=' ', header=None)
     except:
@@ -44,10 +40,10 @@ def predict(filename):
     output=output.sort_values('conf', ascending=False).reset_index(drop=True)
 
     output.label = output.label.replace(labels)
-    print(output)
+    #print(output)
     sort = output.label.to_dict()
     inv_sort = {v: k for k, v in sort.items()}
-    print(inv_sort)
+    #print(inv_sort)
     df=nutr[nutr.label.isin(output.label)].sort_values(by='label', key=lambda x: x.replace(inv_sort))
     df =df.set_index('name')#.drop('Unnamed: 0', axis=1)
     results=df.T.to_json(force_ascii=False)#.encode('utf-8')
