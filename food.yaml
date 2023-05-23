@@ -1,506 +1,550 @@
-path: /content/yolov5/mydata/images
-train: /content/yolov5/mydata/train.txt
-val: /content/yolov5/mydata/test.txt
+path: ./mydata
+train: train.txt
+val: test.txt
 test: 
 
 names:
-  0: None
-  1: rice
-  2: eels on rice
-  3: pilaf
-  4: chicken-'n'-egg on rice
-  5: pork cutlet on rice
-  6: beef curry
-  7: sushi
-  8: chicken rice
-  9: fried rice
-  10: tempura bowl
-  11: bibimbap
-  12: toast
-  13: croissant
-  14: roll bread
-  15: raisin bread
-  16: chip butty
-  17: hamburger
-  18: pizza
-  19: sandwiches
-  20: udon noodle
-  21: tempura udon
-  22: soba noodle
-  23: ramen noodle
-  24: beef noodle
-  25: tensin noodle
-  26: fried noodle
-  27: spaghetti
-  28: japanese-style pancake
-  29: takoyaki
-  30: gratin
-  31: sauteed vegetables
-  32: croquette
-  33: grilled eggplant
-  34: sauteed spinach
-  35: vegetable tempura
-  36: miso soup
-  37: potage
-  38: sausage
-  39: oden
-  40: omelet
-  41: ganmodoki
-  42: jiaozi
-  43: stew
-  44: teriyaki grilled fish
-  45: fried fish
-  46: grilled salmon
-  47: salmon meuniere
-  48: sashimi
-  49: grilled pacific saury
-  50: sukiyaki
-  51: sweet and sour pork
-  52: lightly roasted fish
-  53: steamed egg hotchpotch
-  54: tempura
-  55: fried chicken
-  56: sirloin cutlet
-  57: nanbanzuke
-  58: boiled fish
-  59: seasoned beef with potatoes
-  60: hambarg steak
-  61: steak
-  62: dried fish
-  63: ginger pork saute
-  64: spicy chili-flavored tofu
-  65: yakitori
-  66: cabbage roll
-  67: None
-  68: egg sunny-side up
-  69: natto
-  70: cold tofu
-  71: egg roll
-  72: chilled noodle
-  73: stir-fried beef and peppers
-  74: simmered pork
-  75: boiled chicken and vegetables
-  76: sashimi bowl
-  77: sushi bowl
-  78: fish-shaped pancake with bean jam
-  79: shrimp with chill source
-  80: roast chicken
-  81: steamed meat dumpling
-  82: omelet with fried rice
-  83: cutlet curry
-  84: spaghetti meat sauce
-  85: fried shrimp
-  86: potato salad
-  87: green salad
-  88: macaroni salad
-  89: japanese tofu and vegetable chowder
-  90: pork miso soup
-  91: chinese soup
-  92: beef bowl
-  93: kinpira-style sauteed burdock
-  94: rice ball
-  95: pizza toast
-  96: dipping noodles
-  97: hot dog
-  98: french fries
-  99: mixed rice
-  100: goya chanpuru
-  101: green curry
-  102: okinawa soba
-  103: mango pudding
-  104: almond jelly
-  105: jjigae
-  106: dak galbi
-  107: dry curry
-  108: kamameshi
-  109: rice vermicelli
-  110: paella
-  111: tanmen
-  112: kushikatu
-  113: yellow curry
-  114: pancake
-  115: champon
-  116: crape
-  117: tiramisu
-  118: waffle
-  119: rare cheese cake
-  120: shortcake
-  121: chop suey
-  122: twice cooked pork
-  123: mushroom risotto
-  124: samul
-  125: zoni
-  126: french toast
-  127: fine white noodles
-  128: minestrone
-  129: pot au feu
-  130: chicken nugget
-  131: namero
-  132: french bread
-  133: rice gruel
-  134: broiled eel bowl
-  135: clear soup
-  136: yudofu
-  137: mozuku
-  138: inarizushi
-  139: pork loin cutlet
-  140: pork fillet cutlet
-  141: chicken cutlet
-  142: ham cutlet
-  143: minced meat cutlet
-  144: thinly sliced raw horsemeat
-  145: bagel
-  146: scone
-  147: tortilla
-  148: tacos
-  149: nachos
-  150: meat loaf
-  151: scrambled egg
-  152: rice gratin
-  153: lasagna
-  154: caesar salad
-  155: oatmeal
-  156: fried pork dumplings served in soup
-  157: oshiruko
-  158: muffin
-  159: popcorn
-  160: cream puff
-  161: doughnut
-  162: apple pie
-  163: parfait
-  164: fried pork in scoop
-  165: lamb kebabs
-  166: dish consisting of stir-fried potato, eggplant and green pepper
-  167: roast duck
-  168: hot pot
-  169: pork belly
-  170: xiao long bao
-  171: moon cake
-  172: custard tart
-  173: beef noodle soup
-  174: pork cutlet
-  175: minced pork rice
-  176: fish ball soup
-  177: oyster omelette
-  178: glutinous oil rice
-  179: trunip pudding
-  180: stinky tofu
-  181: lemon fig jelly
-  182: khao soi
-  183: sour prawn soup
-  184: thai papaya salad
-  185: boned, sliced hainan-style chicken with marinated rice
-  186: hot and sour, fish and vegetable ragout
-  187: stir-fried mixed vegetables
-  188: beef in oyster sauce
-  189: pork satay
-  190: spicy chicken salad
-  191: noodles with fish curry
-  192: pork sticky noodles
-  193: pork with lemon
-  194: stewed pork leg
-  195: charcoal-boiled pork neck
-  196: fried mussel pancakes
-  197: deep fried chicken wing
-  198: barbecued red pork in sauce with rice
-  199: rice with roast duck
-  200: rice crispy pork
-  201: wonton soup
-  202: chicken rice curry with coconut
-  203: crispy noodles
-  204: egg noodle in chicken yellow curry
-  205: coconut milk soup
-  206: pho
-  207: hue beef rice vermicelli soup
-  208: vermicelli noodles with snails
-  209: fried spring rolls
-  210: steamed rice roll
-  211: shrimp patties
-  212: ball shaped bun with pork
-  213: coconut milk-flavored crepes with shrimp and beef
-  214: small steamed savory rice pancake
-  215: glutinous rice balls
-  216: loco moco
-  217: haupia
-  218: malasada
-  219: laulau
-  220: spam musubi
-  221: oxtail soup
-  222: adobo
-  223: lumpia
-  224: brownie
-  225: churro
-  226: jambalaya
-  227: nasi goreng
-  228: ayam goreng
-  229: ayam bakar
-  230: bubur ayam
-  231: gulai
-  232: laksa
-  233: mie ayam
-  234: mie goreng
-  235: nasi campur
-  236: nasi padang
-  237: nasi uduk
-  238: babi guling
-  239: kaya toast
-  240: bak kut teh
-  241: curry puff
-  242: chow mein
-  243: zha jiang mian
-  244: kung pao chicken
-  245: crullers
-  246: eggplant with garlic sauce
-  247: three cup chicken
-  248: bean curd family style
-  249: salt & pepper fried shrimp with shell
-  250: baked salmon
-  251: braised pork meat ball with napa cabbage
-  252: winter melon soup
-  253: steamed spareribs
-  254: chinese pumpkin pie
-  255: eight treasure rice
-  256: hot & sour soup
-  257: macaron
-  258: beignet
-  259: cockle food
-  260: samosa
-  261: tostada
-  262: moussaka
-  263: dumpling
-  264: knish
-  265: couscous
-  266: porridge
-  267: seaweed salad
-  268: rigatoni
-  269: steak tartare
-  270: cannoli
-  271: foie gras
-  272: cupcake
-  273: osso buco
-  274: pad thai
-  275: poutine
-  276: pulled pork sandwich
-  277: chicken kiev
-  278: risotto
-  279: fruitcake
-  280: haggis
-  281: frittata
-  282: scampi
-  283: orzo
-  284: fritter
-  285: beef stroganoff
-  286: beef wellington
-  287: spring roll
-  288: savarin
-  289: crayfish food
-  290: souffle
-  291: streusel
-  292: deviled egg
-  293: escargot
-  294: club sandwich
-  295: carrot cake
-  296: falafel
-  297: farfalle
-  298: terrine
-  299: poached egg
-  300: gnocchi
-  301: bubble and squeak
-  302: caprese salad
-  303: sauerkraut
-  304: creme brulee
-  305: pavlova
-  306: fondue
-  307: scallop
-  308: chocolate cake
-  309: potpie
-  310: applesauce
-  311: baklava
-  312: salisbury steak
-  313: linguine
-  314: edamame
-  315: coq au vin
-  316: tamale
-  317: macaroni and cheese
-  318: kedgeree
-  319: garlic bread
-  320: beet salad
-  321: vermicelli
-  322: pate
-  323: tetrazzini
-  324: onion rings
-  325: red velvet cake
-  326: compote
-  327: lobster food
-  328: chicken curry
-  329: chicken wing
-  330: succotash
-  331: hummus
-  332: fish and chips
-  333: lutefisk
-  334: sloppy joe
-  335: gingerbread
-  336: crab cake
-  337: sauerbraten
-  338: peking duck
-  339: guacamole
-  340: ham sandwich
-  341: crumpet
-  342: strawberry shortcake
-  343: clam chowder
-  344: cottage pie
-  345: croque madame
-  346: french onion soup
-  347: beef carpaccio
-  348: torte
-  349: poi
-  350: crab food
-  351: bacon and eggs
-  352: coffee cake
-  353: custard
-  354: syllabub
-  355: pork chop
-  356: boiled egg
-  357: galantine
-  358: brisket
-  359: reuben
-  360: schnitzel
-  361: ambrosia food
-  362: gyoza
-  363: jerky
-  364: ravioli
-  365: fried calamari
-  366: spaghetti carbonara
-  367: frozen yogurt
-  368: wonton
-  369: panna cotta
-  370: enchilada
-  371: ceviche
-  372: fettuccine
-  373: chili
-  374: flan
-  375: kabob
-  376: sponge cake
-  377: casserole
-  378: blancmange
-  379: bruschetta
-  380: tortellini
-  381: shrimp and grits
-  382: meat loaf food
-  383: meatball
-  384: scrapple
-  385: strudel
-  386: coconut cake
-  387: marble cake
-  388: filet mignon
-  389: tuna tartare
-  390: penne
-  391: eggs benedict
-  392: bread pudding
-  393: tenderloin
-  394: chocolate mousse
-  395: baked alaska
-  396: confit
-  397: ham and eggs
-  398: biryani
-  399: greek salad
-  400: huevos rancheros
-  401: tagliatelle
-  402: stuffed peppers
-  403: cannelloni
-  404: sausage roll
-  405: chicken quesadilla
-  406: prime rib
-  407: cheesecake
-  408: limpet food
-  409: ziti
-  410: mussel
-  411: manicotti
-  412: ice cream
-  413: oyster
-  414: clam food
-  415: burrito
-  416: roulade
-  417: lobster bisque
-  418: grilled cheese sandwich
-  419: gyro
-  420: pound cake
-  421: lobster roll sandwich
-  422: baby back rib
-  423: tapenade
-  424: pepper steak
-  425: welsh rarebit
-  426: dolmas
-  427: coquilles saint jacques
-  428: veal cordon bleu
-  429: shirred egg
-  430: barbecued wing
-  431: lobster thermidor
-  432: steak au poivre
-  433: huitre
-  434: chiffon cake
-  435: toad in the hole
-  436: chicken marengo
-  437: victoria sandwich
-  438: tamale pie
-  439: boston cream pie
-  440: fish stick
-  441: crumb cake
-  442: chicken provencale
-  443: vol au vent
-  444: entrecote
-  445: carbonnade flamande
-  446: bacon lettuce tomato sandwich
-  447: scotch egg
-  448: pirogi
-  449: peach melba
-  450: upside down cake
-  451: applesauce cake
-  452: rugulah
-  453: rock cake
-  454: barbecued spareribs
-  455: beef bourguignonne
-  456: rissole
-  457: mostaccioli
-  458: apple turnover
-  459: matzo ball
-  460: chicken cordon bleu
-  461: eccles cake
-  462: moo goo gai pan
-  463: buffalo wing
-  464: stuffed tomato
-  465: beer bottle
-  466: beer glass
-  467: consomme
-  468: trifle
-  469: ice lolly
-  470: pretzel
-  471: cheeseburger
-  472: mashed potato
-  473: head cabbage
-  474: broccoli
-  475: cauliflower
-  476: zucchini
-  477: spaghetti squash
-  478: acorn squash
-  479: butternut squash
-  480: cucumber
-  481: artichoke
-  482: bell pepper
-  483: mushroom
-  484: granny smith
-  485: strawberry
-  486: orange
-  487: lemon
-  488: fig
-  489: pineapple
-  490: banana
-  491: jackfruit
-  492: custard apple
-  493: pomegranate
-  494: chocolate sauce
-  495: red wine
-  496: espresso
-  497: eggnog
-  498: corn
-  499: buckeye
+  0: rice
+  1: eels on rice
+  2: pilaf
+  3: chicken-'n'-egg on rice
+  4: pork cutlet on rice
+  5: beef curry
+  6: sushi
+  7: chicken rice
+  8: tempura bowl
+  9: bibimbap
+  10: toast
+  11: croissant
+  12: roll bread
+  13: raisin bread
+  14: chip butty
+  15: hamburger
+  16: pizza
+  17: sandwiches
+  18: udon noodle
+  19: tempura udon
+  20: soba noodle
+  21: ramen noodle
+  22: beef noodle
+  23: tensin noodle
+  24: fried noodle
+  25: spaghetti
+  26: japanese-style pancake
+  27: takoyaki
+  28: gratin
+  29: sauteed vegetables
+  30: croquette
+  31: grilled eggplant
+  32: sauteed spinach
+  33: vegetable tempura
+  34: miso soup
+  35: potage
+  36: sausage
+  37: oden
+  38: omelet
+  39: ganmodoki
+  40: jiaozi
+  41: stew
+  42: teriyaki grilled fish
+  43: fried fish
+  44: grilled salmon
+  45: salmon meuniere
+  46: sashimi
+  47: grilled pacific saury
+  48: sukiyaki
+  49: sweet and sour pork
+  50: lightly roasted fish
+  51: steamed egg hotchpotch
+  52: tempura
+  53: fried chicken
+  54: sirloin cutlet
+  55: nanbanzuke
+  56: boiled fish
+  57: seasoned beef with potatoes
+  58: hambarg steak
+  59: steak
+  60: dried fish
+  61: ginger pork saute
+  62: spicy chili-flavored tofu
+  63: yakitori
+  64: cabbage roll
+  65: bacon and eggs
+  66: natto
+  67: cold tofu
+  68: egg roll
+  69: chilled noodle
+  70: stir-fried beef and peppers
+  71: simmered pork
+  72: boiled chicken and vegetables
+  73: sashimi bowl
+  74: sushi bowl
+  75: fish-shaped pancake with bean jam
+  76: shrimp with chill source
+  77: roast chicken
+  78: steamed meat dumpling
+  79: omelet with fried rice
+  80: cutlet curry
+  81: spaghetti meat sauce
+  82: fried shrimp
+  83: potato salad
+  84: green salad
+  85: macaroni salad
+  86: japanese tofu and vegetable chowder
+  87: pork miso soup
+  88: jjigae
+  89: beef bowl
+  90: kinpira-style sauteed burdock
+  91: rice ball
+  92: pizza toast
+  93: dipping noodles
+  94: hot dog
+  95: french fries
+  96: mixed rice
+  97: goya chanpuru
+  98: green curry
+  99: okinawa soba
+  100: pudding
+  101: almond jelly
+  102: dak galbi
+  103: dry curry
+  104: kamameshi
+  105: rice vermicelli
+  106: paella
+  107: tanmen
+  108: kushikatu
+  109: yellow curry
+  110: pancake
+  111: champon
+  112: crape
+  113: tiramisu
+  114: waffle
+  115: rare cheese cake
+  116: shortcake
+  117: chop suey
+  118: twice cooked pork
+  119: mushroom risotto
+  120: samul
+  121: zoni
+  122: french toast
+  123: fine white noodles
+  124: minestrone
+  125: pot au feu
+  126: chicken nugget
+  127: namero
+  128: french bread
+  129: rice gruel
+  130: broiled eel bowl
+  131: clear soup
+  132: yudofu
+  133: mozuku
+  134: inarizushi
+  135: pork loin cutlet
+  136: cutlet
+  137: thinly sliced raw horsemeat
+  138: bagel
+  139: scone
+  140: tortilla
+  141: tacos
+  142: nachos
+  143: meat loaf
+  144: rice gratin
+  145: lasagna
+  146: caesar salad
+  147: oatmeal
+  148: fried pork dumplings served in soup
+  149: oshiruko
+  150: muffin
+  151: popcorn
+  152: cream puff
+  153: doughnut
+  154: apple pie
+  155: parfait
+  156: fried pork in scoop
+  157: lamb kebabs
+  158: dish consisting of stir-fried potato, eggplant and green pepper
+  159: roast duck
+  160: hot pot
+  161: pork belly
+  162: xiao long bao
+  163: moon cake
+  164: custard tart
+  165: beef noodle soup
+  166: minced pork rice
+  167: fish ball soup
+  168: oyster omelette
+  169: glutinous oil rice
+  170: stinky tofu
+  171: lemon fig jelly
+  172: khao soi
+  173: sour prawn soup
+  174: thai papaya salad
+  175: boned, sliced hainan-style chicken with marinated rice
+  176: hot and sour, fish and vegetable ragout
+  177: stir-fried mixed vegetables
+  178: beef in oyster sauce
+  179: pork satay
+  180: spicy chicken salad
+  181: noodles with fish curry
+  182: pork sticky noodles
+  183: pork with lemon
+  184: stewed pork leg
+  185: charcoal-boiled pork neck
+  186: fried mussel pancakes
+  187: deep fried chicken wing
+  188: barbecued red pork in sauce with rice
+  189: rice with roast duck
+  190: rice crispy pork
+  191: wonton soup
+  192: chicken rice curry with coconut
+  193: crispy noodles
+  194: egg noodle in chicken yellow curry
+  195: coconut milk soup
+  196: pho
+  197: hue beef rice vermicelli soup
+  198: vermicelli noodles with snails
+  199: fried spring rolls
+  200: steamed rice roll
+  201: shrimp patties
+  202: ball shaped bun with pork
+  203: coconut milk-flavored crepes with shrimp and beef
+  204: small steamed savory rice pancake
+  205: glutinous rice balls
+  206: loco moco
+  207: haupia
+  208: malasada
+  209: laulau
+  210: spam musubi
+  211: oxtail soup
+  212: adobo
+  213: lumpia
+  214: brownie
+  215: churro
+  216: nasi goreng
+  217: ayam goreng
+  218: ayam bakar
+  219: bubur ayam
+  220: gulai
+  221: laksa
+  222: mie ayam
+  223: mie goreng
+  224: nasi campur
+  225: nasi padang
+  226: nasi uduk
+  227: babi guling
+  228: kaya toast
+  229: bak kut teh
+  230: curry puff
+  231: chow mein
+  232: zha jiang mian
+  233: kung pao chicken
+  234: crullers
+  235: eggplant with garlic sauce
+  236: three cup chicken
+  237: bean curd family style
+  238: salt & pepper fried shrimp with shell
+  239: baked salmon
+  240: braised pork meat ball with napa cabbage
+  241: winter melon soup
+  242: steamed spareribs
+  243: chinese pumpkin pie
+  244: eight treasure rice
+  245: hot & sour soup
+  246: macaron
+  247: beignet
+  248: cockle food
+  249: samosa
+  250: tostada
+  251: moussaka
+  252: dumpling
+  253: knish
+  254: couscous
+  255: porridge
+  256: seaweed salad
+  257: rigatoni
+  258: steak tartare
+  259: cannoli
+  260: foie gras
+  261: cupcake
+  262: osso buco
+  263: pad thai
+  264: poutine
+  265: pulled pork sandwich
+  266: risotto
+  267: fruitcake
+  268: haggis
+  269: frittata
+  270: scampi
+  271: orzo
+  272: fritter
+  273: beef stroganoff
+  274: beef wellington
+  275: spring roll
+  276: savarin
+  277: crayfish food
+  278: souffle
+  279: streusel
+  280: deviled egg
+  281: escargot
+  282: club sandwich
+  283: carrot cake
+  284: falafel
+  285: farfalle
+  286: terrine
+  287: poached egg
+  288: gnocchi
+  289: bubble and squeak
+  290: caprese salad
+  291: sauerkraut
+  292: creme brulee
+  293: pavlova
+  294: fondue
+  295: scallop
+  296: jambalaya
+  297: chocolate cake
+  298: potpie
+  299: applesauce
+  300: baklava
+  301: salisbury steak
+  302: linguine
+  303: edamame
+  304: coq au vin
+  305: tamale
+  306: macaroni and cheese
+  307: kedgeree
+  308: garlic bread
+  309: beet salad
+  310: vermicelli
+  311: pate
+  312: tetrazzini
+  313: onion rings
+  314: red velvet cake
+  315: compote
+  316: lobster food
+  317: chicken curry
+  318: chicken wing
+  319: succotash
+  320: hummus
+  321: fish and chips
+  322: lutefisk
+  323: sloppy joe
+  324: gingerbread
+  325: crab cake
+  326: sauerbraten
+  327: peking duck
+  328: guacamole
+  329: ham sandwich
+  330: crumpet
+  331: strawberry shortcake
+  332: clam chowder
+  333: cottage pie
+  334: croque madame
+  335: french onion soup
+  336: beef carpaccio
+  337: torte
+  338: poi
+  339: crab food
+  340: coffee cake
+  341: custard
+  342: syllabub
+  343: pork chop
+  344: fried rice
+  345: boiled egg
+  346: galantine
+  347: brisket
+  348: reuben
+  349: schnitzel
+  350: ambrosia food
+  351: gyoza
+  352: jerky
+  353: ravioli
+  354: fried calamari
+  355: spaghetti carbonara
+  356: frozen yogurt
+  357: wonton
+  358: panna cotta
+  359: enchilada
+  360: ceviche
+  361: fettuccine
+  362: chili
+  363: kabob
+  364: sponge cake
+  365: casserole
+  366: blancmange
+  367: bruschetta
+  368: tortellini
+  369: shrimp and grits
+  370: meatball
+  371: scrapple
+  372: strudel
+  373: coconut cake
+  374: pound cake
+  375: filet mignon
+  376: tuna tartare
+  377: pasta
+  378: eggs benedict
+  379: bread pudding
+  380: tenderloin
+  381: chocolate mousse
+  382: baked alaska
+  383: confit
+  384: ham and eggs
+  385: biryani
+  386: greek salad
+  387: tagliatelle
+  388: stuffed peppers
+  389: cannelloni
+  390: sausage roll
+  391: chicken quesadilla
+  392: prime rib
+  393: cheesecake
+  394: limpet food
+  395: None
+  396: mussel
+  397: manicotti
+  398: ice cream
+  399: oyster
+  400: clam food
+  401: burrito
+  402: roulade
+  403: lobster bisque
+  404: grilled cheese sandwich
+  405: gyro
+  406: lobster roll sandwich
+  407: baby back rib
+  408: tapenade
+  409: pepper steak
+  410: welsh rarebit
+  411: dolmas
+  412: coquilles saint jacques
+  413: veal cordon bleu
+  414: shirred egg
+  415: barbecued wing
+  416: lobster thermidor
+  417: steak au poivre
+  418: None
+  419: chiffon cake
+  420: toad in the hole
+  421: chicken marengo
+  422: victoria sandwich
+  423: tamale pie
+  424: boston cream pie
+  425: fish stick
+  426: crumb cake
+  427: chicken provencale
+  428: vol au vent
+  429: entrecote
+  430: carbonnade flamande
+  431: bacon lettuce tomato sandwich
+  432: scotch egg
+  433: pirogi
+  434: peach melba
+  435: upside down cake
+  436: applesauce cake
+  437: rugulah
+  438: rock cake
+  439: None
+  440: beef bourguignonne
+  441: rissole
+  442: None
+  443: apple turnover
+  444: matzo ball
+  445: chicken cordon bleu
+  446: eccles cake
+  447: moo goo gai pan
+  448: buffalo wing
+  449: stuffed tomato
+  450: beer bottle
+  451: beer glass
+  452: consomme
+  453: trifle
+  454: ice lolly
+  455: pretzel
+  456: cheeseburger
+  457: mashed potato
+  458: head cabbage
+  459: broccoli
+  460: cauliflower
+  461: zucchini
+  462: pumpkin
+  463: cucumber
+  464: artichoke
+  465: bell pepper
+  466: mushroom
+  467: apple
+  468: strawberry
+  469: orange
+  470: lemon
+  471: fig
+  472: pineapple
+  473: banana
+  474: jackfruit
+  475: custard apple
+  476: pomegranate
+  477: chocolate sauce
+  478: red wine
+  479: espresso
+  480: eggnog
+  481: corn
+  482: buckeye
+  483: grape
+  484: mango
+  485: eggplant
+  486: longan
+  487: fruit mix
+  488: cherry ground
+  489: pear
+  490: avocado
+  491: papaya
+  492: plum
+  493: carrot
+  494: kiwi
+  495: olive
+  496: berry mix
+  497: potato
+  498: citrus
+  499: dragon fruit
+  500: blackberry
+  501: tomato
+  502: passion fruit
+  503: cranberry
+  504: peach
+  505: watermelon
+  506: jujube
+  507: mayongchid
+  508: blueberry
+  509: lychee
+  510: persimmon
+  511: beet
+  512: radish
+  513: snake fruit
+  514: raspberry
+  515: cherry
+  516: gooseberry
+  517: guava
+  518: melon
+  519: coconut
+  520: redcurrant
+  521: jack fruit
+  522: roseapple
+  523: carambola
+  524: brazil nuts
+  525: pistachios
+  526: pine nuts
+  527: walnuts
+  528: macadamia
+  529: cashews
+  530: pecans
+  531: almonds
+  532: hazelnuts
+  533: olivier salad
+  534: syrniki
+  535: sоlyanka
+  536: crab salad
+  537: fish stew
+  538: charlotte
+  539: beet soup
+  540: buckwheat
+  541: potato pancakes
+  542: bread
+  
