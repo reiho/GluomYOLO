@@ -19,7 +19,7 @@ def allowed_file(filename):
 def predict(filename):
     if os.path.exists('./yolov5/runs/detect/'):shutil.rmtree("./yolov5/runs/detect/")
     nutr = pd.read_excel('products.xlsx', header=0).set_index('Unnamed: 0')
-    nutr.columns = ['name', 'protein', 'fat', 'carbohydrate', 'kcal', 'label']
+    nutr.columns = ['name', 'protein', 'fat', 'carbohydrate', 'kcal', 'label', 'priority', 'short_name']
     labels = {}
     with open('food.yaml', 'r') as f:
         start = False
@@ -29,10 +29,10 @@ def predict(filename):
                 labels[int(num)] = name
             if 'names:' in line:
                 start = True
-    os.system("python yolov5/detect.py --weights best.pt --conf 0.05 --source ./photos/{0}.jpg --save-txt --save-conf --name food".format(filename))
-    os.remove("./photos/{0}.jpg".format(filename))
+    os.system("python yolov5/detect.py --weights best.pt --conf 0.005 --source ./photos/{0}.jpg --save-txt --save-conf --name food".format(filename))
+    os.remove("./photos/{}.jpg".format(filename))
     try:
-        output = pd.read_csv('./yolov5/runs/detect/food/labels/{0}.txt'.format(filename), sep=' ', header=None)
+        output = pd.read_csv('./yolov5/runs/detect/food/labels/{}.txt'.format(filename), sep=' ', header=None)
     except:
         return {}
     output.columns = ['label', 'coord1', 'coord2', 'coord3', 'coord4', 'conf']
@@ -45,32 +45,7 @@ def predict(filename):
     inv_sort = {v: k for k, v in sort.items()}
     #print(inv_sort)
     df=nutr[nutr.label.isin(output.label)].sort_values(by='label', key=lambda x: x.replace(inv_sort))
-    df =df.set_index('name')#.drop('Unnamed: 0', axis=1)
+    df.loc[~df.short_name.isna(), 'name']=df.loc[~df.short_name.isna(), 'short_name']
+    df = df.set_index('name').drop('short_name', axis=1)
     results=df.T.to_json(force_ascii=False)#.encode('utf-8')
     return results
-
-
-@app.route('/nutrition',methods = ['POST'])
-def getphoto():
-    if request.method == 'POST':
-        # check if the post request has the file part
-        if 'file' not in request.files:
-            return('No file part')
-
-        file = request.files['file']
-        # If the user does not select a file, the browser submits an
-        # empty file without a filename.
-        if file.filename == '':
-            return('No selected file')
-        if file and allowed_file(file.filename):
-            filename=str(uuid.uuid4())
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename+'.jpg'))
-            return redirect(url_for('predict', filename=filename))
-
-@app.route('/')
-def start():
-    return 'App is ready'
-
-if __name__ == '__main__':
-    app.debug = True
-    app.run(host='0.0.0.0')
