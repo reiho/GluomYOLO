@@ -18,7 +18,7 @@ names:
   11: croissant
   12: roll bread
   13: raisin bread
-  14: chip butty
+  14: green bean
   15: hamburger
   16: pizza
   17: sandwiches
@@ -29,7 +29,7 @@ names:
   22: beef noodle
   23: tensin noodle
   24: fried noodle
-  25: spaghetti
+  25: None
   26: japanese-style pancake
   27: takoyaki
   28: gratin
@@ -91,7 +91,7 @@ names:
   84: green salad
   85: macaroni salad
   86: japanese tofu and vegetable chowder
-  87: pork miso soup
+  87: smoked cheese
   88: jjigae
   89: beef bowl
   90: kinpira-style sauteed burdock
@@ -102,7 +102,7 @@ names:
   95: french fries
   96: mixed rice
   97: goya chanpuru
-  98: green curry
+  98: curry
   99: okinawa soba
   100: pudding
   101: almond jelly
@@ -113,10 +113,10 @@ names:
   106: paella
   107: tanmen
   108: kushikatu
-  109: yellow curry
+  109: pickled cabbage
   110: pancake
   111: champon
-  112: crape
+  112: crepe
   113: tiramisu
   114: waffle
   115: rare cheese cake
@@ -176,7 +176,7 @@ names:
   169: glutinous oil rice
   170: stinky tofu
   171: lemon fig jelly
-  172: khao soi
+  172: tartar sauce
   173: sour prawn soup
   174: thai papaya salad
   175: boned, sliced hainan-style chicken with marinated rice
@@ -185,20 +185,20 @@ names:
   178: beef in oyster sauce
   179: pork satay
   180: spicy chicken salad
-  181: noodles with fish curry
+  181: noodles with curry
   182: pork sticky noodles
   183: pork with lemon
   184: stewed pork leg
   185: charcoal-boiled pork neck
   186: fried mussel pancakes
-  187: deep fried chicken wing
-  188: barbecued red pork in sauce with rice
+  187: succade
+  188: soy sauce
   189: rice with roast duck
   190: rice crispy pork
   191: wonton soup
   192: chicken rice curry with coconut
   193: crispy noodles
-  194: egg noodle in chicken yellow curry
+  194: sour sweet sauce
   195: coconut milk soup
   196: pho
   197: hue beef rice vermicelli soup
@@ -221,7 +221,7 @@ names:
   214: brownie
   215: churro
   216: nasi goreng
-  217: ayam goreng
+  217: soft cheese
   218: ayam bakar
   219: bubur ayam
   220: gulai
@@ -229,8 +229,8 @@ names:
   222: mie ayam
   223: mie goreng
   224: nasi campur
-  225: nasi padang
-  226: nasi uduk
+  225: None
+  226: None
   227: babi guling
   228: kaya toast
   229: bak kut teh
@@ -261,7 +261,7 @@ names:
   254: couscous
   255: porridge
   256: seaweed salad
-  257: rigatoni
+  257: None
   258: steak tartare
   259: cannoli
   260: foie gras
@@ -289,13 +289,13 @@ names:
   282: club sandwich
   283: carrot cake
   284: falafel
-  285: farfalle
+  285: None
   286: terrine
   287: poached egg
   288: gnocchi
   289: bubble and squeak
   290: caprese salad
-  291: sauerkraut
+  291: None
   292: creme brulee
   293: pavlova
   294: fondue
@@ -306,7 +306,7 @@ names:
   299: applesauce
   300: baklava
   301: salisbury steak
-  302: linguine
+  302: None
   303: edamame
   304: coq au vin
   305: tamale
@@ -321,7 +321,7 @@ names:
   314: red velvet cake
   315: compote
   316: lobster food
-  317: chicken curry
+  317: sherbet
   318: chicken wing
   319: succotash
   320: hummus
@@ -351,7 +351,7 @@ names:
   344: fried rice
   345: boiled egg
   346: galantine
-  347: brisket
+  347: None
   348: reuben
   349: schnitzel
   350: ambrosia food
@@ -370,7 +370,7 @@ names:
   363: kabob
   364: sponge cake
   365: casserole
-  366: blancmange
+  366: shchi
   367: bruschetta
   368: tortellini
   369: shrimp and grits
@@ -388,7 +388,7 @@ names:
   381: chocolate mousse
   382: baked alaska
   383: confit
-  384: ham and eggs
+  384: prune
   385: biryani
   386: greek salad
   387: tagliatelle
@@ -399,7 +399,7 @@ names:
   392: prime rib
   393: cheesecake
   394: limpet food
-  395: None
+  395: baranka
   396: mussel
   397: manicotti
   398: ice cream
@@ -416,14 +416,14 @@ names:
   409: pepper steak
   410: welsh rarebit
   411: dolmas
-  412: coquilles saint jacques
-  413: veal cordon bleu
+  412: narsharb
+  413: mushroom sauce
   414: shirred egg
   415: barbecued wing
   416: lobster thermidor
   417: steak au poivre
-  418: None
-  419: chiffon cake
+  418: boiled tongue
+  419: None
   420: toad in the hole
   421: chicken marengo
   422: victoria sandwich
@@ -443,13 +443,13 @@ names:
   436: applesauce cake
   437: rugulah
   438: rock cake
-  439: None
+  439: breadstick
   440: beef bourguignonne
   441: rissole
-  442: None
+  442: bulgur
   443: apple turnover
   444: matzo ball
-  445: chicken cordon bleu
+  445: cordon bleu
   446: eccles cake
   447: moo goo gai pan
   448: buffalo wing
@@ -525,7 +525,7 @@ names:
   518: melon
   519: coconut
   520: redcurrant
-  521: jack fruit
+  521: None
   522: roseapple
   523: carambola
   524: brazil nuts
@@ -547,3 +547,74 @@ names:
   540: buckwheat
   541: potato pancakes
   542: bread
+  543: chicken brest
+  544: ginger
+  545: grenki
+  546: ham
+  547: jam
+  548: mustard
+  549: pea
+  550: raisin
+  551: red caviar
+  552: kefir
+  553: ketchup
+  554: quinoa
+  555: roasted poultry
+  556: shadberry
+  557: squash spread
+  558: squid boiled
+  559: squid dried
+  560: yogurt
+  561: zapekanka
+  562: zephir
+  563: jelly
+  564: boiled shrimp
+  565: cappuccino
+  566: dried apricot
+  567: gozinaki
+  568: kissel
+  569: latte
+  570: poultry boiled
+  571: lavash
+  572: poultry smoked
+  573: sushi roll
+  574: honey
+  575: marzipan
+  576: salmon salted
+  577: boiled beef
+  578: cookies
+  579: cottage cheese
+  580: oreshki
+  581: canned fish
+  582: celery
+  583: clupea salad
+  584: clupea
+  585: fish burger
+  586: lokum
+  587: pita
+  588: pryanik
+  589: rassolnik
+  590: salo
+  591: stewed cabbage
+  592: sweet bread
+  593: vinegret
+  594: puff pastry cookie
+  595: roasted fish
+  596: asparagus
+  597: burrata cheese
+  598: hard cheese
+  599: moldy cheese
+  600: sochnik
+  601: zwieback
+  602: pork balyk
+  603: roastbeef
+  604: smoked pork
+  605: anthill cake
+  606: bbq sauce
+  607: bean
+  608: cake potato
+  609: chak chak
+  610: churchhela
+  611: honeyberry
+  612: focaccia
+  613: halva
