@@ -6,7 +6,13 @@ cd GluomYOLO
 git clone https://github.com/ultralytics/yolov5
 pip install -qr YOLOrequirements.txt
 pip install -qr requirements.txt
-gdown --id 1njY8uXfLnGnv9gt775tYUjXAxKUJ9NiH
+```
+Скачиваем веса модели с Гугл диска (best.pt)
+```
+gdown --id 1mnbheC6JFzCWRVqQIgdDzbeXm0I6XscI
+```
+Запускаем приложение
+```
 python app.py
 ```
 Будет выдано 2 адреса, второй доступен всем устройствам в той же сети:
