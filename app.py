@@ -40,7 +40,6 @@ def predict(filename):
     output=output.sort_values('conf', ascending=False).reset_index(drop=True)
 
     output.label = output.label.replace(labels)
-    #print(output)
     sort = output.label.to_dict()
     inv_sort = {v: k for k, v in sort.items()}
     #print(inv_sort)
@@ -49,3 +48,29 @@ def predict(filename):
     df = df.set_index('name').drop('short_name', axis=1)
     results=df.T.to_json(force_ascii=False)#.encode('utf-8')
     return results
+
+
+@app.route('/nutrition',methods = ['POST'])
+def getphoto():
+    if request.method == 'POST':
+        # check if the post request has the file part
+        if 'file' not in request.files:
+            return('No file part')
+
+        file = request.files['file']
+        # If the user does not select a file, the browser submits an
+        # empty file without a filename.
+        if file.filename == '':
+            return('No selected file')
+        if file and allowed_file(file.filename):
+            filename=str(uuid.uuid4())
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename+'.jpg'))
+            return redirect(url_for('predict', filename=filename))
+
+@app.route('/')
+def start():
+    return 'App is ready'
+
+if __name__ == '__main__':
+    app.debug = True
+    app.run(host='0.0.0.0')
